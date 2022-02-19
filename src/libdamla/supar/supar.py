@@ -2,7 +2,6 @@
 
 import re
 from typing import List, Optional
-from typing_extensions import Self
 
 _VER_RE = r"((?P<major>\d+)(\.(?P<minor>\d+)(\.(?P<patch>\d+)(-(?P<pre>\w+))?(\+(?P<build>\w+))?)?)?)|(?P<all>\*)"
 _VER_RANGE_RE = rf"\s*(?P<cmp>[<>])(?P<eq>=)?\s*(?P<ver>{_VER_RE})\s*"
@@ -205,7 +204,7 @@ take a single *loose* version and turn it into a min and max value"""
     def __contains__(self, v):
         return self.test(v)
 
-    def join(self, vr: Self):
+    def join(self, vr):
         r = VersionRange("0")
         if self.max > vr.max:
             r.max, r.max_eq = vr.max, vr.max_eq
