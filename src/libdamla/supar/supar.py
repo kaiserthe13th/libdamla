@@ -93,7 +93,7 @@ class Version:
                     if self.pre is not None and o.pre is not None:
                         tle = self.pre > o.pre
                     if self.build is not None and o.build is not None:
-                        tle = self.build > o.build
+                        tle = tle and self.build > o.build
         return tle
 
     def __lt__(self, o):
