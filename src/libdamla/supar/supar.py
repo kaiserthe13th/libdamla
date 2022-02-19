@@ -41,7 +41,7 @@ class Version:
             raise ValueError("Invalid Version: Incorrect Format")
 
     def __repr__(self) -> str:
-        t = f"{self.major}"
+        t = f"{self.major if self.major else '*'}"
         if self.minor is not None:
             t += f".{self.minor}"
             if self.patch is not None:
